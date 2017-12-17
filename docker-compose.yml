@@ -1,0 +1,16 @@
+version: "2"
+services:
+  iweb:
+    build: .
+    ports:
+      - "3132:3000"
+    links:
+      - imongo
+  imongo:
+    image: mongo
+    volumes:
+      - idat:/data/db
+    ports:
+      - "27027:27017"
+volumes:
+  idat:
